@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block estilos %}
+{% endblock %}
+
+{% block menu %}
+{% include 'menu.html' %}
+{% endblock %}
+{% block titulo %}Agregar Auto{% endblock %}
+{% block contenido %}
+    <h1>Agregar Auto a la Venta!</h1>
+
+    <form action="/procesar_auto" method="post">
+        <div class="row g-3 align-items-center">
+            <div class="col-12">
+                <label for="precio" class="col-form-label">Precio</label>
+            </div>
+            <div class="col-12">
+                <input type="number" id="precio" name="precio" class="form-control">
+            </div>
+        </div>
+        <div class="row g-3 align-items-center">
+            <div class="col-12">
+                <label for="modelo" class="col-form-label">Modelo</label>
+            </div>
+            <div class="col-12">
+                <input type="text" id="modelo" name="modelo" class="form-control">
+            </div>
+        </div>
+        <div class="row g-3 align-items-center">
+            <div class="col-12">
+                <label for="marca" class="col-form-label">Marca</label>
+            </div>
+            <div class="col-12">
+                <input type="text" id="marca" name="marca" class="form-control">
+            </div>
+        </div>
+        <div class="row g-3 align-items-center">
+            <div class="col-12">
+                <label for="anio" class="col-form-label">Año</label>
+            </div>
+            <div class="col-12">
+                <input type="number" id="anio" name="anio" class="form-control">
+            </div>
+        </div>
+        <div class="row g-3 align-items-center">
+            <div class="col-12">
+                <label for="descripcion" class="col-form-label">Descripción</label>
+            </div>
+            <div class="col-12">
+                <textarea class="form-control" id="descripcion" name="descripcion"></textarea>
+            </div>
+        </div>
+        <div class="row g-3 align-items-center mt-3">
+            <div class="col-12">
+            </div>
+            <div class="col-12">
+                <button class="btn btn-primary" type="submit">Agregar!!</button>
+            </div>
+        </div>
+    </form>
+
+
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block estilos %}
+{% endblock %}
+
+{% block menu %}
+{% include 'menu.html' %}
+{% endblock %}
+
+{% block contenido %}
+    <h1>Bienvenido al sistema {{session.usuario.nombre}}</h1>
+
+
+    
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Modelo</th>
+                <th>Año</th>
+                <th>Vendedor</th>
+                <th>Acciones</th>
+            <tr>
+        </thead>
+        <tbody>
+            {% for auto in autos %}
+            <tr>
+                <td>{{auto.modelo}}</td>    
+                <td>{{auto.anio}}</td>    
+                <td>{{auto.usuario.nombre}} {{auto.usuario.apellido}}</td>    
+                <td>
+                    {% if auto.usuario.id == session.usuario.id %}
+                        <a href="/auto/editar/{{auto.id}}" class="btn btn-warning">EDITAR</a>
+                        <a href="/auto/eliminar/{{auto.id}}" class="btn btn-danger">ELIMINAR</a>
+                    {% else %}
+                        {% if auto.vendido == 0 %}
+                        <a href="/auto/mostrar/{{auto.id}}" class="btn btn-info">VER</a>
+                        {% else %}
+                            <buttton class="btn btn-defaul">VENDIDO A {{auto.comprador.nombre}}</button>
+                        {% endif %}
+                    {% endif %}
+                </td>    
+            <tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

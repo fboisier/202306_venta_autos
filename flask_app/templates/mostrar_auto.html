@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block estilos %}
+{% endblock %}
+
+{% block menu %}
+{% include 'menu.html' %}
+{% endblock %}
+{% block titulo %}Mostrar Auto{% endblock %}
+{% block contenido %}
+    <h1>Auto a la Venta! {{auto.modelo}}</h1>
+
+    <div class="card p-5">
+        <h2>PRECIO: ${{auto.precio}}</h2>
+        <h4>Modelo: {{auto.modelo}}</h4>
+        <h4>Marca: {{auto.marca}}</h4>
+        <h4>Año: {{auto.anio}}</h4>
+        <p>Descripción: {{auto.descripcion}}</p>
+        <hr>
+        <p>Vendedor: {{auto.usuario.nombre}} {{auto.usuario.apellido}}</p>
+        <a href="/auto/vender/{{auto.id}}" class="btn btn-primary">COMPRAR AUTO!</a>
+    </div>
+
+
+{% endblock %}

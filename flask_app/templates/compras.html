@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block estilos %}
+{% endblock %}
+
+{% block menu %}
+{% include 'menu.html' %}
+{% endblock %}
+{% block titulo %}Compras {% endblock %}
+{% block contenido %}
+    <h1>Compras de {{session.usuario.nombre}}</h1>
+
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Modelo</th>
+                <th>Año</th>
+                <th>Vendedor</th>
+            <tr>
+        </thead>
+        <tbody>
+            {% for auto in autos %}
+            <tr>
+                <td>{{auto.modelo}}</td>    
+                <td>{{auto.anio}}</td>    
+                <td>{{auto.usuario.nombre}} {{auto.usuario.apellido}}</td>    
+            <tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
